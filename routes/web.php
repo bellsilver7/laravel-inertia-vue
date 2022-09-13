@@ -15,5 +15,12 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Home');
+    return Inertia::render('Home', [
+        'name' => 'bellsilver7',
+        'frameworks' => [
+            'Laravel',
+            'Vue',
+            'Inertia'
+        ],
+    ]);
 });

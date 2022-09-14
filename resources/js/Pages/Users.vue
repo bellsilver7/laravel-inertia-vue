@@ -3,6 +3,6 @@ import Nav from "@/Shared/Nav.vue";
 </script>
 
 <template>
-    <h1>Users</h1>
+    <h1 class="text-4xl font-bold">Users</h1>
     <Nav />
 </template>

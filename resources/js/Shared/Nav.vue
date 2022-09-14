@@ -3,16 +3,30 @@ import { Link } from "@inertiajs/inertia-vue3";
 </script>
 
 <template>
-    <nav>
-        <ul class="flex">
-            <li class="text-sm bg-indigo-200 rounded px-2 py-1 mx-1">
-                <Link href="/">Home</Link>
+    <nav class="mt-6">
+        <ul class="list-disc">
+            <li>
+                <Link class="text-blue-500 hover:underline" href="/">Home</Link>
             </li>
-            <li class="text-sm bg-indigo-200 rounded px-2 py-1 mx-1">
-                <Link href="/users">Users</Link>
+            <li>
+                <Link class="text-blue-500 hover:underline" href="/users"
+                    >Users</Link
+                >
             </li>
-            <li class="text-sm bg-indigo-200 rounded px-2 py-1 mx-1">
-                <Link href="/settings">Settings</Link>
+            <li>
+                <Link class="text-blue-500 hover:underline" href="/settings"
+                    >Settings</Link
+                >
+            </li>
+            <li>
+                <Link
+                    class="text-blue-500 hover:underline"
+                    href="/logout"
+                    method="post"
+                    :data="{ foo: 'bar' }"
+                    as="button"
+                    >Logout</Link
+                >
             </li>
         </ul>
     </nav>

@@ -1,13 +1,9 @@
 <script setup>
 import { Link } from "@inertiajs/inertia-vue3";
-import Layout from "@/Shared/Layout.vue";
 
 defineProps({
     time: String,
 });
-</script>
-<script>
-export default { layout: Layout };
 </script>
 
 <template>

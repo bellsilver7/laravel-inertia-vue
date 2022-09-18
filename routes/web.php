@@ -21,7 +21,7 @@ Route::get('/', function () {
 });
 
 Route::get('/users', function () {
-    return Inertia::render('Users', [
+    return Inertia::render('Users/Index', [
         'users' => User::when(
             Request::input('search'),
             function ($query, $search) {
@@ -36,6 +36,25 @@ Route::get('/users', function () {
             ]),
         'filters' => Request::only(['search']),
     ]);
+});
+
+Route::get('/users/create', function () {
+    return Inertia::render('Users/Create');
+});
+
+Route::post('/users', function () {
+    // validation the request
+    $validated = Request::validate([
+        'name' => 'required',
+        'email' => ['required', 'email'],
+        'password' => 'required',
+    ]);
+
+    // create the user
+    User::create($validated);
+
+    // redirect
+    return redirect('/users');
 });
 
 Route::get('/settings', function () {

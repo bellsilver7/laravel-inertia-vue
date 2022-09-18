@@ -2,6 +2,10 @@
 import { Inertia } from "@inertiajs/inertia";
 import { reactive } from "vue";
 
+defineProps({
+    errors: Object,
+});
+
 let form = reactive({
     name: "",
     email: "",
@@ -32,6 +36,11 @@ let submit = () => {
                 id="name"
                 required
             />
+            <div
+                v-if="errors.name"
+                v-text="errors.name"
+                class="text-red-500 text-xs mt-1"
+            />
         </div>
         <div class="mb-6">
             <label
@@ -47,6 +56,11 @@ let submit = () => {
                 id="email"
                 required
             />
+            <div
+                v-if="errors.email"
+                v-text="errors.email"
+                class="text-red-500 text-xs mt-1"
+            />
         </div>
         <div class="mb-6">
             <label
@@ -61,6 +75,11 @@ let submit = () => {
                 name="password"
                 id="password"
                 required
+            />
+            <div
+                v-if="errors.password"
+                v-text="errors.password"
+                class="text-red-500 text-xs mt-1"
             />
         </div>
 

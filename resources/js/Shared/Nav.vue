@@ -26,6 +26,9 @@ import NavLink from "@/Components/NavLink.vue";
                     Settings
                 </NavLink>
             </li>
+            <li>
+                <NavLink href="/logout" method="post">Log Out</NavLink>
+            </li>
         </ul>
     </nav>
 </template>

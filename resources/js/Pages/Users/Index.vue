@@ -9,6 +9,7 @@ let props = defineProps({
     time: String,
     users: Object,
     filters: Object,
+    can: Object,
 });
 
 let search = ref(props.filters.search);
@@ -32,7 +33,10 @@ watch(
     <div class="flex justify-between mb-6">
         <div class="flex items-center">
             <h1 class="text-3xl">Users</h1>
-            <Link href="/users/create" class="text-blue-500 text-sm ml-2"
+            <Link
+                v-if="can.createUser"
+                href="/users/create"
+                class="text-blue-500 text-sm ml-2"
                 >New User</Link
             >
         </div>
@@ -67,6 +71,7 @@ watch(
                                 </td>
 
                                 <td
+                                    v-if="user.can.edit"
                                     class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"
                                 >
                                     <Link
